@@ -1,6 +1,7 @@
 <Project DefaultTargets="All" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <PropertyGroup>
   <Configuration Condition="$(Configuration) == ''">Release</Configuration>
+  <Platform Condition=" '$(Platform)' == '' ">X64</Platform>
   <SolutionFile>..\src\SoundFingerprinting.sln</SolutionFile>
   <NugetExecutable>..\src\.nuget\NuGet.exe</NugetExecutable>
   <MSTestExecutable>..\tools\MSTest.exe</MSTestExecutable>
@@ -40,10 +41,17 @@
 	<Exec Command="&quot;$(NugetExecutable)&quot; pack $(SoundFingerprintingLibProject) -Build -Properties Configuration=$(Configuration)" />
 </Target>
 
+<Target Name = "PackageSoundFingerprintingNAudioLib" DependsOnTargets="RunSoundFingerprintingLibTests;RunNAudioTests">
+	<Exec Command="&quot;$(NugetExecutable)&quot; pack $(SoundFingerprintingNAudioProject) -Build -Properties Configuration=$(Configuration)" />
+</Target>
+
 <Target Name = "Package" DependsOnTargets="PackageSoundFingerprintingLib">
 	<RemoveDir Directories="TestResults" />
 </Target>
 
-<Target Name = "All" DependsOnTargets="Compile;Package" />
+<Target Name = "PackageNAudio" DependsOnTargets="PackageSoundFingerprintingNAudioLib">	
+</Target>
+
+<Target Name = "All" DependsOnTargets="Compile;Package;PackageNAudio" />
 
 </Project>
