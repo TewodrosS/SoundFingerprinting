@@ -16,7 +16,7 @@
         [TestMethod]
         public void InsertTest()
         {
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
             
             var subFingerprintReference = SubFingerprintDao.InsertSubFingerprint(GenericSignature, 123, 0.928, trackReference);
@@ -27,7 +27,7 @@
         [TestMethod]
         public void ReadTest()
         {
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
             var subFingerprintReference = SubFingerprintDao.InsertSubFingerprint(GenericSignature, 123, 0.928, trackReference);
 

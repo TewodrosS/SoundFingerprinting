@@ -32,7 +32,7 @@
         [TestMethod]
         public void TestSpectralImagesAreInsertedInDataSource()
         {
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
             var audioSamples = audioService.ReadMonoSamplesFromFile(
                 PathToMp3, FingerprintConfiguration.Default.SampleRate);

@@ -34,7 +34,7 @@
         [TestMethod]
         public void InsertReadTest()
         {
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
             const int NumberOfHashBins = 100;
             var hashedFingerprints = Enumerable.Range(0, NumberOfHashBins).Select(i => new HashedFingerprint(GenericSignature, GenericHashBuckets, i, i * 0.928));
@@ -51,7 +51,7 @@
             const int StaticStride = 5115;
             TagInfo tagInfo = this.GetTagInfo();
             int releaseYear = tagInfo.Year;
-            TrackData track = new TrackData(tagInfo.ISRC, tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration);
+            TrackData track = new TrackData(tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration);
             var trackReference = TrackDao.InsertTrack(track);
             var hashedFingerprints = fingerprintCommandBuilder
                 .BuildFingerprintCommand()
@@ -81,10 +81,10 @@
             TagInfo tagInfo = this.GetTagInfo();
             int releaseYear = tagInfo.Year;
             TrackData firstTrack = new TrackData(
-                tagInfo.ISRC, tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration)
+                 tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration)
                 { GroupId = "first-group-id" };
             TrackData secondTrack = new TrackData(
-                tagInfo.ISRC, tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration) { GroupId = "second-group-id" };
+                tagInfo.Artist, tagInfo.Title, tagInfo.Album, releaseYear, (int)tagInfo.Duration) { GroupId = "second-group-id" };
 
             var firstTrackReference = TrackDao.InsertTrack(firstTrack);
             var secondTrackReference = TrackDao.InsertTrack(secondTrack);
@@ -124,7 +124,7 @@
         [TestMethod]
         public void ReadHashDataByTrackTest()
         {
-            TrackData firstTrack = new TrackData("isrc", "artist", "title", "album", 2012, 200);
+            TrackData firstTrack = new TrackData("artist", "title", "album", 2012, 200);
 
             var firstTrackReference = TrackDao.InsertTrack(firstTrack);
 
@@ -137,7 +137,7 @@
 
             InsertHashedFingerprintsForTrack(firstHashData, firstTrackReference);
 
-            TrackData secondTrack = new TrackData("isrc", "artist", "title", "album", 2012, 200);
+            TrackData secondTrack = new TrackData("artist", "title", "album", 2012, 200);
 
             var secondTrackReference = TrackDao.InsertTrack(secondTrack);
 

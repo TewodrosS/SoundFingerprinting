@@ -13,9 +13,9 @@
             // no op
         }
 
-        public TrackData(string isrc, string artist, string title, string album, int releaseYear, double trackLength)
+        public TrackData(string artist, string title, string album, int releaseYear, double trackLength)
         {
-            ISRC = isrc;
+            //ISRC = isrc;
             Artist = artist;
             Title = title;
             Album = album;
@@ -23,8 +23,8 @@
             TrackLengthSec = trackLength;
         }
 
-        public TrackData(string isrc, string artist, string title, string album, int releaseYear, double trackLength, IModelReference trackReference)
-            : this(isrc, artist, title, album, releaseYear, trackLength)
+        public TrackData(string artist, string title, string album, int releaseYear, double trackLength, IModelReference trackReference)
+            : this(artist, title, album, releaseYear, trackLength)
         {
             TrackReference = trackReference;
         }
@@ -33,7 +33,7 @@
 
         public string Title { get; set; }
 
-        public string ISRC { get; set; }
+        //public string ISRC { get; set; }
 
         public string Album { get; set; }
 

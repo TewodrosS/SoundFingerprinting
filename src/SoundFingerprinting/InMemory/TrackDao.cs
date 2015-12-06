@@ -33,10 +33,10 @@
             return track.TrackReference = trackReference;
         }
 
-        public TrackData ReadTrackByISRC(string isrc)
-        {
-            return storage.Tracks.FirstOrDefault(pair => pair.Value.ISRC == isrc).Value;
-        }
+        //public TrackData ReadTrackByISRC(string isrc)
+        //{
+        //    return storage.Tracks.FirstOrDefault(pair => pair.Value.ISRC == isrc).Value;
+        //}
 
         public IList<TrackData> ReadAll()
         {

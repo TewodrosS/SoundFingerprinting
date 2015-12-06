@@ -20,6 +20,6 @@
 
         public string Composer { get; set; }
 
-        public string ISRC { get; set; }
+        //public string ISRC { get; set; }
     }
 }

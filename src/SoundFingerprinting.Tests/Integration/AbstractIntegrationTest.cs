@@ -56,7 +56,7 @@
                 Duration = 100.2,
                 Genre = "Genre",
                 IsEmpty = false,
-                ISRC = "ISRC",
+                //ISRC = "ISRC",
                 Title = "Title",
                 Year = 1986
             };

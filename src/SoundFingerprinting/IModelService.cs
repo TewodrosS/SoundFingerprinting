@@ -24,7 +24,7 @@ namespace SoundFingerprinting
             
         TrackData ReadTrackByReference(IModelReference trackReference);
 
-        TrackData ReadTrackByISRC(string isrc);
+        //TrackData ReadTrackByISRC(string isrc);
 
         int DeleteTrack(IModelReference trackReference);
 

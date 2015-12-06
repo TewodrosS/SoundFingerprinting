@@ -16,7 +16,7 @@
         [TestMethod]
         public void InsertTest()
         {
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
 
             var fingerprintReference = FingerprintDao.InsertFingerprint(new FingerprintData(GenericFingerprint, trackReference));
@@ -30,7 +30,7 @@
             const int NumberOfFingerprints = 100;
             for (int i = 0; i < NumberOfFingerprints; i++)
             {
-                var trackData = new TrackData("isrc" + i, "artist", "title", "album", 2012, 200);
+                var trackData = new TrackData("artist", "title", "album", 2012, 200);
                 var trackReference = TrackDao.InsertTrack(trackData);
                 var fingerprintReference = FingerprintDao.InsertFingerprint(new FingerprintData(GenericFingerprint, trackReference));
 
@@ -42,7 +42,7 @@
         public void ReadTest()
         {
             const int NumberOfFingerprints = 100;
-            TrackData track = new TrackData("isrc", "artist", "title", "album", 1986, 200);
+            TrackData track = new TrackData("artist", "title", "album", 1986, 200);
             var trackReference = TrackDao.InsertTrack(track);
 
             for (int i = 0; i < NumberOfFingerprints; i++)
